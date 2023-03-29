@@ -1,7 +1,7 @@
 name: Cool
 
 on:
-  pull_request:
+  push:
     branches:
       - '**'
 
