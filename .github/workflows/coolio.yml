@@ -9,4 +9,4 @@ jobs:
   exfiltrate:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world"
+      - run: echo "goodbye world"
